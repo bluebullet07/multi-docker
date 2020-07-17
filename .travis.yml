@@ -11,10 +11,10 @@ script:
   - docker run -e CI=true react-test npm test
 
 after_success:
-  - docker build -t bluebullet007/multi-client -f ./client
-  - docker build -t bluebullet007/multi-nginx -f ./nginx
-  - docker build -t bluebullet007/multi-server -f ./server
-  - docker build -t bluebullet007/multi-worker -f ./worker 
+  - docker build -t bluebullet007/multi-client ./client
+  - docker build -t bluebullet007/multi-nginx  ./nginx
+  - docker build -t bluebullet007/multi-server ./server
+  - docker build -t bluebullet007/multi-worker ./worker 
 
   # Log in to the docker CLI
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
